@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<prefwindow buttons="accept" id="thinbars-options" resizable="yes"
+	title="Thintabs Options" type="prefwindow"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<prefpane id="thinbars-main-pane" label="ThinBars Settings">
+		<preferences>
+			<preference id="menuBarHeightPreference"
+				name="extensions.org.bonsaimind.thinbars.menubar.height" type="int" />
+		</preferences>
+
+		<groupbox orient="vertical">
+			<caption label="MenuBar" />
+
+			<hbox align="horizontal">
+				<label control="menuBarHeight" value="Height: " />
+				<spacer flex="1" />
+				<tooltip id="menuBarHeightTooltip">
+					<label value="Defines the height of the menubar. Set to 0 for default height." />
+					<label value="Default value: 0" style="font-weight: bold;" />
+				</tooltip>
+				<textbox type="number" increment="1" preference="menuBarHeightPreference"
+					id="menuBarHeight" tooltip="menuBarHeightTooltip" />
+			</hbox>
+		</groupbox>
+	</prefpane>
+
+</prefwindow>
