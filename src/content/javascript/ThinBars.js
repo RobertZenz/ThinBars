@@ -13,6 +13,7 @@ var EXPORTED_SYMBOLS = [ "ThinBars" ];
 
 Components.utils.import("resource://gre/modules/Services.jsm");
 
+Components.utils.import("chrome://thinbars/content/javascript/CSSBuilder.js");
 Components.utils.import("chrome://thinbars/content/javascript/DynamicStyleSheets.js");
 Components.utils.import("chrome://thinbars/content/javascript/Preferences.js");
 
@@ -66,11 +67,35 @@ var ThinBars = {
 	setDefaultPreferences : function() {
 		Preferences.registerInt("menubar.height", 0, function(name, value) {
 			if (value > 0) {
-				DynamicStyleSheets.register(name, "#toolbar-menubar > * { height: " + value + "px !important;"
-						+ "max-height: " + value + "px !important;" + "min-height: " + value + "px !important; }");
+				var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value + "px");
+				DynamicStyleSheets.register(name, css.toCSS());
 			} else {
 				DynamicStyleSheets.unregister(name);
 			}
+		});
+		
+		Preferences.registerInt("menubar.items.padding.top", 0, function(name, value) {
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon")
+
+			if (value >= 0) {
+				css.add("padding-top", value + "px");
+			} else {
+				css.add("margin-top", value + "px");
+			}
+			
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("menubar.items.padding.bottom", 0, function(name, value) {
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box, #urlbar-icons")
+
+			if (value >= 0) {
+				css.add("padding-bottom", value + "px");
+			} else {
+				css.add("margin-bottom", value + "px");
+			}
+			
+			DynamicStyleSheets.register(name, css.toCSS());
 		});
 	},
 	
