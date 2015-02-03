@@ -66,12 +66,8 @@ var ThinBars = {
 	
 	setDefaultPreferences : function() {
 		Preferences.registerInt("menubar.height", 0, function(name, value) {
-			if (value > 0) {
-				var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value + "px");
-				DynamicStyleSheets.register(name, css.toCSS());
-			} else {
-				DynamicStyleSheets.unregister(name);
-			}
+			var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value + "px");
+			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("menubar.items.padding.top", 0, function(name, value) {
@@ -85,9 +81,38 @@ var ThinBars = {
 			
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
-		
+		// , #urlbar-icons
 		Preferences.registerInt("menubar.items.padding.bottom", 0, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box, #urlbar-icons")
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box")
+
+			if (value >= 0) {
+				css.add("padding-bottom", value + "px");
+			} else {
+				css.add("margin-bottom", value + "px");
+			}
+			
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("navbar.height", 0, function(name, value) {
+			var css = new CSSBuilder("#nav-bar > *").forceHeight(value + "px");
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("navbar.items.padding.top", 0, function(name, value) {
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon")
+
+			if (value >= 0) {
+				css.add("padding-top", value + "px");
+			} else {
+				css.add("margin-top", value + "px");
+			}
+			
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("navbar.items.padding.bottom", 0, function(name, value) {
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box")
 
 			if (value >= 0) {
 				css.add("padding-bottom", value + "px");

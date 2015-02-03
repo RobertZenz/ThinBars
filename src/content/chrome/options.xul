@@ -15,12 +15,20 @@
 			<preference id="menuBarItemsPaddingBottomPreference"
 				name="extensions.org.bonsaimind.thinbars.menubar.items.padding.bottom"
 				type="int" />
+			<preference id="navBarHeightPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.height" type="int" />
+			<preference id="navBarItemsPaddingTopPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.top"
+				type="int" />
+			<preference id="navBarItemsPaddingBottomPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.bottom"
+				type="int" />
 		</preferences>
 
 		<tabbox>
 			<tabs>
 				<tab label="MenuBar" />
-				<tab label="ToolBar" />
+				<tab label="NavBar" />
 			</tabs>
 			<tabpanels>
 				<tabpanel>
@@ -29,9 +37,8 @@
 							<label control="menuBarHeight" value="Height: " />
 							<spacer flex="1" />
 							<tooltip id="menuBarHeightTooltip">
-								<label
-									value="Defines the height of the menubar. Set to 0 for default height." />
-								<label value="Default value: 0" style="font-weight: bold;" />
+								<label value="Defines the height of the menubar." />
+								<label value="Default value: 18" style="font-weight: bold;" />
 							</tooltip>
 							<textbox type="number" increment="1"
 								preference="menuBarHeightPreference" id="menuBarHeight" tooltip="menuBarHeightTooltip" />
@@ -57,7 +64,7 @@
 							<caption label="Items" />
 
 							<hbox align="horizontal">
-								<label control="menuBarItemsPaddingBottom" value="Padding top: " />
+								<label control="menuBarItemsPaddingBottom" value="Padding bottom: " />
 								<spacer flex="1" />
 								<tooltip id="menuBarItemsPaddingBottomTooltip">
 									<label
@@ -73,6 +80,51 @@
 				</tabpanel>
 
 				<tabpanel>
+					<vbox>
+						<hbox align="horizontal">
+							<label control="navBarHeight" value="Height: " />
+							<spacer flex="1" />
+							<tooltip id="navBarHeightTooltip">
+								<label value="Defines the height of the menubar." />
+								<label value="Default value: 18" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1"
+								preference="navBarHeightPreference" id="navBarHeight" tooltip="navBarHeightTooltip" />
+						</hbox>
+						<groupbox orient="vertical">
+							<caption label="Items" />
+
+							<hbox align="horizontal">
+								<label control="navBarItemsPaddingTop" value="Padding top: " />
+								<spacer flex="1" />
+								<tooltip id="navBarItemsPaddingTopTooltip">
+									<label
+										value="Defines how much space is between the icon and the top edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="navBarItemsPaddingTopPreference" id="navBarItemsPaddingTop"
+									tooltip="navBarItemsPaddingTopTooltip" />
+							</hbox>
+						</groupbox>
+
+						<groupbox orient="vertical">
+							<caption label="Items" />
+
+							<hbox align="horizontal">
+								<label control="navBarItemsPaddingBottom" value="Padding bottom: " />
+								<spacer flex="1" />
+								<tooltip id="navBarItemsPaddingBottomTooltip">
+									<label
+										value="Defines how much space is between the icon and the top edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="navBarItemsPaddingBottomPreference" id="navBarItemsPaddingBottom"
+									tooltip="navBarItemsPaddingBottomTooltip" />
+							</hbox>
+						</groupbox>
+					</vbox>
 				</tabpanel>
 			</tabpanels>
 		</tabbox>

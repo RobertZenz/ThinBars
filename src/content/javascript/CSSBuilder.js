@@ -32,6 +32,36 @@ var CSSBuilder = function(selector) {
 		return this;
 	};
 	
+	this.height = function(value) {
+		this.add("height", value);
+		return this;
+	};
+	
+	this.maxHeight = function(value) {
+		this.add("max-Height", value);
+		return this;
+	};
+	
+	this.maxWidth = function(value) {
+		this.add("max-width", value);
+		return this;
+	};
+	
+	this.minHeight = function(value) {
+		this.add("min-Height", value);
+		return this;
+	};
+	
+	this.minWidth = function(value) {
+		this.add("min-width", value);
+		return this;
+	};
+	
+	this.width = function(value) {
+		this.add("width", value);
+		return this;
+	};
+	
 	this.toCSS = function() {
 		return this.selector + " {\n" + this.declarations + "}";
 	};

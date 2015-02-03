@@ -19,7 +19,7 @@ var Preferences = {
 	destroy : function() {
 		this.preferences.removeObserver("", this);
 		
-		this.changeCllbacks = null;
+		this.changeCallbacks = null;
 		this.defaultPreferences = null;
 		this.preferences = null;
 		this.getFunctions = null;
@@ -27,6 +27,11 @@ var Preferences = {
 	
 	init : function(branch) {
 		this.branch = branch;
+		
+		this.changeCallbacks = {};
+		this.defaultPreferences = {};
+		this.preferences = {};
+		this.getFunctions = {};
 		
 		this.defaultPreferences = Components.classes["@mozilla.org/preferences-service;1"].getService(
 				Components.interfaces.nsIPrefService).getDefaultBranch(this.branch);
