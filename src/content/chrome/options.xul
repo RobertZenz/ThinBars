@@ -13,6 +13,21 @@
 			<preference id="findBarNoTransitionPreference"
 				name="extensions.org.bonsaimind.thinbars.findbar.notransition"
 				type="bool" />
+			<preference id="findBarPaddingBottomPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.padding.bottom"
+				type="int" />
+			<preference id="findBarPaddingLeftPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.padding.left"
+				type="int" />
+			<preference id="findBarPaddingRightPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.padding.right"
+				type="int" />
+			<preference id="findBarPaddingTopPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.padding.top"
+				type="int" />
+			<preference id="findBarTextBoxPaddingPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.textbox.padding"
+				type="int" />
 			<preference id="menuBarHeightPreference"
 				name="extensions.org.bonsaimind.thinbars.menubar.height" type="int" />
 			<preference id="menuBarItemsPaddingTopPreference"
@@ -141,15 +156,76 @@
 							<spacer flex="1" />
 							<tooltip id="findBarHeightTooltip">
 								<label value="Defines the height of the findbar." />
-								<label value="Default value: 18" style="font-weight: bold;" />
+								<label value="Default value: 22" style="font-weight: bold;" />
 							</tooltip>
 							<textbox type="number" increment="1"
 								preference="findBarHeightPreference" id="findBarHeight" tooltip="findBarHeightTooltip" />
 						</hbox>
+						
+						<hbox align="horizontal">
+							<label control="findBarPaddingBottom" value="Padding Bottom: " />
+							<spacer flex="1" />
+							<tooltip id="findBarPaddingBottomTooltip">
+								<label value="Defines the paddingt at the bottom of the findbar." />
+								<label value="Default value: 0" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="findBarPaddingBottomPreference" id="findBarPaddingBottom" tooltip="findBarPaddingBottomTooltip" />
+						</hbox>
+						
+						<hbox align="horizontal">
+							<label control="findBarPaddingLeft" value="Padding Left: " />
+							<spacer flex="1" />
+							<tooltip id="findBarPaddingLeftTooltip">
+								<label value="Defines the paddingt at the bottom of the findbar." />
+								<label value="Default value: 1" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="findBarPaddingLeftPreference" id="findBarPaddingLeft" tooltip="findBarPaddingLeftTooltip" />
+						</hbox>
+						
+						<hbox align="horizontal">
+							<label control="findBarPaddingRight" value="Padding Right: " />
+							<spacer flex="1" />
+							<tooltip id="findBarPaddingRightTooltip">
+								<label value="Defines the paddingt at the bottom of the findbar." />
+								<label value="Default value: 1" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="findBarPaddingRightPreference" id="findBarPaddingRight" tooltip="findBarPaddingRightTooltip" />
+						</hbox>
+						
+						<hbox align="horizontal">
+							<label control="findBarPaddingTop" value="Padding Top: " />
+							<spacer flex="1" />
+							<tooltip id="findBarPaddingTopTooltip">
+								<label value="Defines the paddingt at the bottom of the findbar." />
+								<label value="Default value: -1" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="findBarPaddingTopPreference" id="findBarPaddingTop" tooltip="findBarPaddingTopTooltip" />
+						</hbox>
 
 						<checkbox preference="findBarNoTransitionPreference"
-							id="findBarNoTransition" label="Disable the transition"
-							tooltiptext="Disables the transition when the findbar becomes visible or invisble." />
+							id="findBarNoTransition" label="Disable transitions"
+							tooltiptext="Disables the transition when the findbar becomes visible or invisble and the transition when hovering over buttons." />
+
+						<groupbox orient="vertical">
+							<caption label="TextBox" />
+
+							<hbox align="horizontal">
+								<label control="findBarTextBoxPadding" value="Padding: " />
+								<spacer flex="1" />
+								<tooltip id="findBarTextBoxPaddingTooltip">
+									<label
+										value="Defines how much space is between the text and the edge of the textbox." />
+									<label value="Default value: 0" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="findBarTextBoxPaddingPreference" id="findBarTextBoxPadding"
+									tooltip="findBarTextBoxPaddingTooltip" />
+							</hbox>
+						</groupbox>
 					</vbox>
 				</tabpanel>
 			</tabpanels>

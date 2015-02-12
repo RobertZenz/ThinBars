@@ -57,6 +57,23 @@ var CSSBuilder = function(selector) {
 		return this;
 	};
 	
+	this.padding = function(postfix, value) {
+		var declaration = "";
+		
+		if (postfix != null && postfix !== "") {
+			declaration = declaration + "-" + postfix;
+		}
+		
+		if (value >= 0) {
+			this.add("padding" + declaration, value + "px");
+		} else {
+			this.add("padding" + declaration, "0px");
+			this.add("margin" + declaration, value + "px");
+		}
+		
+		return this;
+	};
+	
 	this.width = function(value) {
 		this.add("width", value);
 		return this;

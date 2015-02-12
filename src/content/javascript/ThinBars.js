@@ -65,12 +65,12 @@ var ThinBars = {
 	},
 	
 	setDefaultPreferences : function() {
-		Preferences.registerInt("findbar.height", 29, function(name, value) {
+		Preferences.registerInt("findbar.height", 22, function(name, value) {
 			var css = new CSSBuilder("findbar > *").forceHeight(value + "px");
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerBool("findbar.notransition", 0, function(name, value) {
+		Preferences.registerBool("findbar.notransition", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("findbar, .findbar-button > *").add("transition", "none");
 				DynamicStyleSheets.register(name, css.toCSS());
@@ -79,8 +79,28 @@ var ThinBars = {
 			}
 		});
 		
-		Preferences.registerInt("menubar.height", 0, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value + "px");
+		Preferences.registerInt("findbar.padding.bottom", 0, function(name, value) {
+			var css = new CSSBuilder(".findbar-container").padding("bottom", value);
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("findbar.padding.left", 1, function(name, value) {
+			var css = new CSSBuilder(".findbar-container").padding("left", value);
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("findbar.padding.right", 1, function(name, value) {
+			var css = new CSSBuilder(".findbar-container").padding("right", value);
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("findbar.padding.top", -1, function(name, value) {
+			var css = new CSSBuilder(".findbar-container").padding("top", value);
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerInt("findbar.textbox.padding", 0, function(name, value) {
+			var css = new CSSBuilder(".findbar-textbox").padding("", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
