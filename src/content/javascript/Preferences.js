@@ -25,6 +25,26 @@ var Preferences = {
 		this.getFunctions = null;
 	},
 	
+	getBool : function(name, defaultValue) {
+		try {
+			return this.preferences.getBoolPref(name);
+		} catch (e) {
+			// Empty on purpose
+		}
+		
+		return defaultValue;
+	},
+	
+	getInt : function(name, defaultValue) {
+		try {
+			return this.preferences.getIntPref(name);
+		} catch (e) {
+			// Empty on purpose
+		}
+		
+		return defaultValue;
+	},
+	
 	init : function(branch) {
 		this.branch = branch;
 		
