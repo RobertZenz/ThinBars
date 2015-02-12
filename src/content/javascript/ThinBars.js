@@ -65,6 +65,20 @@ var ThinBars = {
 	},
 	
 	setDefaultPreferences : function() {
+		Preferences.registerInt("findbar.height", 29, function(name, value) {
+			var css = new CSSBuilder("findbar > *").forceHeight(value + "px");
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
+		Preferences.registerBool("findbar.notransition", 0, function(name, value) {
+			if (value) {
+				var css = new CSSBuilder("findbar, .findbar-button > *").add("transition", "none");
+				DynamicStyleSheets.register(name, css.toCSS());
+			} else {
+				DynamicStyleSheets.unregister(name);
+			}
+		});
+		
 		Preferences.registerInt("menubar.height", 0, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value + "px");
 			DynamicStyleSheets.register(name, css.toCSS());

@@ -7,6 +7,12 @@
 
 	<prefpane id="thinbars-main-pane" label="ThinBars Settings">
 		<preferences>
+			<preference id="findBarHeightPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.height"
+				type="int" />
+			<preference id="findBarNoTransitionPreference"
+				name="extensions.org.bonsaimind.thinbars.findbar.notransition"
+				type="bool" />
 			<preference id="menuBarHeightPreference"
 				name="extensions.org.bonsaimind.thinbars.menubar.height" type="int" />
 			<preference id="menuBarItemsPaddingTopPreference"
@@ -29,6 +35,7 @@
 			<tabs>
 				<tab label="MenuBar" />
 				<tab label="NavBar" />
+				<tab label="FindBar" />
 			</tabs>
 			<tabpanels>
 				<tabpanel>
@@ -88,8 +95,8 @@
 								<label value="Defines the height of the menubar." />
 								<label value="Default value: 18" style="font-weight: bold;" />
 							</tooltip>
-							<textbox type="number" increment="1"
-								preference="navBarHeightPreference" id="navBarHeight" tooltip="navBarHeightTooltip" />
+							<textbox type="number" increment="1" preference="navBarHeightPreference"
+								id="navBarHeight" tooltip="navBarHeightTooltip" />
 						</hbox>
 						<groupbox orient="vertical">
 							<caption label="Items" />
@@ -124,6 +131,25 @@
 									tooltip="navBarItemsPaddingBottomTooltip" />
 							</hbox>
 						</groupbox>
+					</vbox>
+				</tabpanel>
+
+				<tabpanel>
+					<vbox>
+						<hbox align="horizontal">
+							<label control="findBarHeight" value="Height: " />
+							<spacer flex="1" />
+							<tooltip id="findBarHeightTooltip">
+								<label value="Defines the height of the findbar." />
+								<label value="Default value: 18" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1"
+								preference="findBarHeightPreference" id="findBarHeight" tooltip="findBarHeightTooltip" />
+						</hbox>
+
+						<checkbox preference="findBarNoTransitionPreference"
+							id="findBarNoTransition" label="Disable the transition"
+							tooltiptext="Disables the transition when the findbar becomes visible or invisble." />
 					</vbox>
 				</tabpanel>
 			</tabpanels>
