@@ -53,8 +53,7 @@ var ThinBars = {
 	},
 	
 	onOpenWindow : function(window) {
-		var domWindow = window.docShell.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(
-				Components.interfaces.nsIDOMWindow);
+		var domWindow = window.docShell.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
 		domWindow.addEventListener("load", this, true);
 	},
 	
