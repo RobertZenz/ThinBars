@@ -65,7 +65,7 @@ var ThinBars = {
 	
 	setDefaultPreferences : function() {
 		Preferences.registerInt("findbar.height", 22, function(name, value) {
-			var css = new CSSBuilder("findbar > *").forceHeight(value + "px");
+			var css = new CSSBuilder("findbar > *").forceHeight(value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
@@ -79,80 +79,52 @@ var ThinBars = {
 		});
 		
 		Preferences.registerInt("findbar.padding.bottom", 0, function(name, value) {
-			var css = new CSSBuilder(".findbar-container").padding("bottom", value);
+			var css = new CSSBuilder(".findbar-container").autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("findbar.padding.left", 1, function(name, value) {
-			var css = new CSSBuilder(".findbar-container").padding("left", value);
+			var css = new CSSBuilder(".findbar-container").autoPadding("left", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("findbar.padding.right", 1, function(name, value) {
-			var css = new CSSBuilder(".findbar-container").padding("right", value);
+			var css = new CSSBuilder(".findbar-container").autoPadding("right", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("findbar.padding.top", -1, function(name, value) {
-			var css = new CSSBuilder(".findbar-container").padding("top", value);
+			var css = new CSSBuilder(".findbar-container").autoPadding("top", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("findbar.textbox.padding", 0, function(name, value) {
-			var css = new CSSBuilder(".findbar-textbox").padding("", value);
+			var css = new CSSBuilder(".findbar-textbox").autoPadding("", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("menubar.items.padding.top", 0, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon")
-
-			if (value >= 0) {
-				css.add("padding-top", value + "px");
-			} else {
-				css.add("margin-top", value + "px");
-			}
-			
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon").autoPadding("top", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		// , #urlbar-icons
 		Preferences.registerInt("menubar.items.padding.bottom", 0, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box")
-
-			if (value >= 0) {
-				css.add("padding-bottom", value + "px");
-			} else {
-				css.add("margin-bottom", value + "px");
-			}
-			
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("navbar.height", 0, function(name, value) {
-			var css = new CSSBuilder("#nav-bar > *").forceHeight(value + "px");
+			var css = new CSSBuilder("#nav-bar > *").forceHeight(value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("navbar.items.padding.top", 0, function(name, value) {
-			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon")
-
-			if (value >= 0) {
-				css.add("padding-top", value + "px");
-			} else {
-				css.add("margin-top", value + "px");
-			}
-			
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon").autoPadding("top", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
 		Preferences.registerInt("navbar.items.padding.bottom", 0, function(name, value) {
-			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box")
-
-			if (value >= 0) {
-				css.add("padding-bottom", value + "px");
-			} else {
-				css.add("margin-bottom", value + "px");
-			}
-			
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 	},
