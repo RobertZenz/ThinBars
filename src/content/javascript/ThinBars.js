@@ -71,6 +71,11 @@ var ThinBars = {
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
+		Preferences.registerInt("menubar.height", 24, function(name, value) {
+			var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value);
+			DynamicStyleSheets.register(name, css.toCSS());
+		});
+		
 		Preferences.registerInt("menubar.items.padding.top", 0, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon").autoPadding("top", value);
 			DynamicStyleSheets.register(name, css.toCSS());
@@ -82,7 +87,7 @@ var ThinBars = {
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.height", 0, function(name, value) {
+		Preferences.registerInt("navbar.height", 24, function(name, value) {
 			var css = new CSSBuilder("#nav-bar > *").forceHeight(value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
