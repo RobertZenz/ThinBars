@@ -19,48 +19,16 @@ Components.utils.import("chrome://thinbars/content/javascript/Preferences.js");
 
 var ThinBars = {
 	
-	getWindows : function() {
-		var windows = [];
+	init : function() {
+		DynamicStyleSheets.init();
+		Preferences.init("extensions.org.bonsaimind.thinbars.");
 		
-		var browserWindows = Services.wm.getEnumerator("navigator:browser");
-		
-		while (browserWindows.hasMoreElements()) {
-			var browserWindow = browserWindows.getNext();
-			browserWindow.QueryInterface(Components.interfaces.nsIDOMWindow);
-			windows.push(browserWindow);
-		}
-		
-		return windows;
+		this.setDefaultPreferences();
 	},
 	
-	handleEvent : function(event) {
-		var document = event.target;
-		var window = document.defaultView;
-		
-		window.removeEventListener("load", this, true);
-		
-		if (document.documentElement.getAttribute("windowtype") != "navigator:browser") {
-			return;
-		}
-		
-		this.loadScript(window);
-	},
-	
-	loadScript : function(window) {
-	},
-	
-	unloadScript : function(window) {
-	},
-	
-	onOpenWindow : function(window) {
-		var domWindow = window.docShell.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
-		domWindow.addEventListener("load", this, true);
-	},
-	
-	onCloseWindow : function(window) {
-	},
-	
-	onWindowTitleChange : function(window, title) {
+	destroy : function() {
+		Preferences.destroy();
+		DynamicStyleSheets.unregisterAll();
 	},
 	
 	setDefaultPreferences : function() {
@@ -109,7 +77,8 @@ var ThinBars = {
 		});
 		// , #urlbar-icons
 		Preferences.registerInt("menubar.items.padding.bottom", 0, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box")
+					.autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
@@ -127,29 +96,5 @@ var ThinBars = {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
-	},
-	
-	init : function() {
-		DynamicStyleSheets.init();
-		
-		Preferences.init("extensions.org.bonsaimind.thinbars.");
-		this.setDefaultPreferences();
-		
-		Services.wm.addListener(this);
-		
-		this.getWindows().forEach(function(window) {
-			this.loadScript(window);
-		}, this);
-	},
-	
-	uninit : function() {
-		Preferences.destroy();
-		DynamicStyleSheets.unregisterAll();
-		
-		Services.wm.removeListener(this);
-		
-		this.getWindows().forEach(function(window) {
-			this.unloadScript(window);
-		}, this);
 	}
 };

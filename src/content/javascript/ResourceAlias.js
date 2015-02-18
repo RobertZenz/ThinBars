@@ -13,6 +13,9 @@ var EXPORTED_SYMBOLS = [ "ResourceAlias" ];
 
 Components.utils.import("resource://gre/modules/Services.jsm");
 
+/**
+ * A simple utility that allows to register a resource alias.
+ */
 var ResourceAlias = {
 	resourceProtocolHandler : null,
 	
@@ -39,7 +42,7 @@ var ResourceAlias = {
 			}
 		}
 		
-		this.resourceProtocolHandler.setSubstitution("thintabs", uri);
+		this.resourceProtocolHandler.setSubstitution("thinbars", uri);
 		
 		return true;
 	},
@@ -49,7 +52,7 @@ var ResourceAlias = {
 			return false;
 		}
 		
-		this.resourceProtocolHandler.setSubstitution("thintabs", null);
+		this.resourceProtocolHandler.setSubstitution("thinbars", null);
 		delete this.resourceProtocolHandler;
 		
 		return true;
