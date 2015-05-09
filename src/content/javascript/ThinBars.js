@@ -87,17 +87,17 @@ var ThinBars = {
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.height", 24, function(name, value) {
-			var css = new CSSBuilder("#nav-bar > *").forceHeight(value);
+		Preferences.registerInt("navbar.height", 26, function(name, value) {
+			var css = new CSSBuilder("#nav-bar").forceHeight(value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.items.padding.top", 0, function(name, value) {
+		Preferences.registerInt("navbar.items.padding.top", -2, function(name, value) {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon").autoPadding("top", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.items.padding.bottom", 0, function(name, value) {
+		Preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
