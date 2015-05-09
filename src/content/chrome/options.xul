@@ -44,6 +44,9 @@
 			<preference id="navBarItemsPaddingBottomPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.bottom"
 				type="int" />
+			<preference id="navBarNoTransitionPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.notransition"
+				type="bool" />
 			<preference id="otherBookmarksIconHideDropdownPreference"
 				name="extensions.org.bonsaimind.thinbars.other.items.bookmarks_icon.hide_dropdown"
 				type="bool" />
@@ -117,6 +120,11 @@
 							<textbox type="number" increment="1" preference="navBarHeightPreference"
 								id="navBarHeight" tooltip="navBarHeightTooltip" />
 						</hbox>
+							
+						<checkbox preference="navBarNoTransitionPreference"
+							id="otherBookmarksIconHideDropdown" label="Disable transitions"
+							tooltiptext="Disables all transitions on the navigation bar." />
+						
 						<groupbox orient="vertical">
 							<caption label="Items" />
 

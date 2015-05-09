@@ -102,6 +102,19 @@ var ThinBars = {
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
+		Preferences.registerBool("navbar.notransition", true, function(name, value) {
+			if (value) {
+				var css = new CSSBuilder("#nav-bar");
+				css = css.addSelector("#nav-bar > *");
+				css = css.addSelector("#nav-bar > #nav-bar-customization-target > *");
+				css = css.add("transition", "none");
+				
+				DynamicStyleSheets.register(name, css.toCSS());
+			} else {
+				DynamicStyleSheets.unregister(name);
+			}
+		});
+		
 		Preferences.registerBool("other.items.bookmarks_icon.hide_dropdown", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker").hide();
