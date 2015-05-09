@@ -87,11 +87,7 @@
 									preference="menuBarItemsPaddingTopPreference" id="menuBarItemsPaddingTop"
 									tooltip="menuBarItemsPaddingTopTooltip" />
 							</hbox>
-						</groupbox>
-
-						<groupbox orient="vertical">
-							<caption label="Items" />
-
+							
 							<hbox align="horizontal">
 								<label control="menuBarItemsPaddingBottom" value="Padding bottom: " />
 								<spacer flex="1" />
@@ -140,11 +136,7 @@
 									preference="navBarItemsPaddingTopPreference" id="navBarItemsPaddingTop"
 									tooltip="navBarItemsPaddingTopTooltip" />
 							</hbox>
-						</groupbox>
-
-						<groupbox orient="vertical">
-							<caption label="Items" />
-
+							
 							<hbox align="horizontal">
 								<label control="navBarItemsPaddingBottom" value="Padding bottom: " />
 								<spacer flex="1" />
