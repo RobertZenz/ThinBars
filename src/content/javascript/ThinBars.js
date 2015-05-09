@@ -101,5 +101,14 @@ var ThinBars = {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
+		
+		Preferences.registerBool("other.items.bookmarks_icon.hide_dropdown", true, function(name, value) {
+			if (value) {
+				var css = new CSSBuilder("#bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker").hide();
+				DynamicStyleSheets.register(name, css.toCSS());
+			} else {
+				DynamicStyleSheets.unregister(name);
+			}
+		});
 	}
 };

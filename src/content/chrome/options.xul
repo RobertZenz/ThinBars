@@ -44,6 +44,9 @@
 			<preference id="navBarItemsPaddingBottomPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.bottom"
 				type="int" />
+			<preference id="otherBookmarksIconHideDropdownPreference"
+				name="extensions.org.bonsaimind.thinbars.other.items.bookmarks_icon.hide_dropdown"
+				type="bool" />
 		</preferences>
 
 		<tabbox>
@@ -51,6 +54,7 @@
 				<tab label="MenuBar" />
 				<tab label="NavBar" />
 				<tab label="FindBar" />
+				<tab label="Other" />
 			</tabs>
 			<tabpanels>
 				<tabpanel>
@@ -226,6 +230,14 @@
 									tooltip="findBarTextBoxPaddingTooltip" />
 							</hbox>
 						</groupbox>
+					</vbox>
+				</tabpanel>
+				
+				<tabpanel>
+					<vbox>
+						<checkbox preference="otherBookmarksIconHideDropdownPreference"
+							id="otherBookmarksIconHideDropdown" label="Hide dropdown of bookmark icon"
+							tooltiptext="Hides the dropdown of the bookmark icon." />
 					</vbox>
 				</tabpanel>
 			</tabpanels>
