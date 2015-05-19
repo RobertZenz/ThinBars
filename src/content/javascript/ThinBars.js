@@ -71,23 +71,23 @@ var ThinBars = {
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("menubar.height", 24, function(name, value) {
+		Preferences.registerInt("menubar.height", 22, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("menubar.items.padding.top", 0, function(name, value) {
+		Preferences.registerInt("menubar.items.padding.top", -2, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon").autoPadding("top", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		// , #urlbar-icons
-		Preferences.registerInt("menubar.items.padding.bottom", 0, function(name, value) {
+		Preferences.registerInt("menubar.items.padding.bottom", -2, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box")
 					.autoPadding("bottom", value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.height", 26, function(name, value) {
+		Preferences.registerInt("navbar.height", 27, function(name, value) {
 			var css = new CSSBuilder("#nav-bar").forceHeight(value);
 			DynamicStyleSheets.register(name, css.toCSS());
 		});
@@ -106,6 +106,7 @@ var ThinBars = {
 			if (value) {
 				var css = new CSSBuilder("#nav-bar");
 				css = css.addSelector("#nav-bar > *");
+				css = css.addSelector("#nav-bar > #nav-bar-customization-target");
 				css = css.addSelector("#nav-bar > #nav-bar-customization-target > *");
 				css = css.add("transition", "none");
 				
