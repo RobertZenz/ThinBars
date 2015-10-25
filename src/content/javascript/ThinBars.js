@@ -84,7 +84,7 @@ var ThinBars = {
 			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		this.preferences.registerInt("menubar.height", 22, function(name, value) {
+		this.preferences.registerInt("menubar.height", 24, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar > *");
 			css = css.forceHeight(value);
 			_this.styleSheets.register(name, css.toCSS());
@@ -98,13 +98,13 @@ var ThinBars = {
 				_this.styleSheets.unregister(name);
 			}
 		});
-		this.preferences.registerInt("menubar.items.padding.top", -2, function(name, value) {
+		this.preferences.registerInt("menubar.items.padding.top", -5, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
 			css = css.autoPadding("top", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
 		// , #urlbar-icons
-		this.preferences.registerInt("menubar.items.padding.bottom", -2, function(name, value) {
+		this.preferences.registerInt("menubar.items.padding.bottom", -5, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box");
 			css = css.autoPadding("bottom", value);
 			_this.styleSheets.register(name, css.toCSS());
