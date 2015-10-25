@@ -4,7 +4,7 @@
 <prefwindow buttons="accept" id="thinbars-options" resizable="yes"
 	title="ThinBars Options" type="prefwindow"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
+	
 	<prefpane id="thinbars-main-pane" label="ThinBars Settings">
 		<preferences>
 			<preference id="findBarHeightPreference"
@@ -51,7 +51,7 @@
 				name="extensions.org.bonsaimind.thinbars.other.items.bookmarks_icon.hide_dropdown"
 				type="bool" />
 		</preferences>
-
+		
 		<tabbox>
 			<tabs>
 				<tab label="MenuBar" />
@@ -74,7 +74,7 @@
 						</hbox>
 						<groupbox orient="vertical">
 							<caption label="Items" />
-
+							
 							<hbox align="horizontal">
 								<label control="menuBarItemsPaddingTop" value="Padding top: " />
 								<spacer flex="1" />
@@ -103,7 +103,7 @@
 						</groupbox>
 					</vbox>
 				</tabpanel>
-
+				
 				<tabpanel>
 					<vbox>
 						<hbox align="horizontal">
@@ -123,7 +123,7 @@
 						
 						<groupbox orient="vertical">
 							<caption label="Items" />
-
+							
 							<hbox align="horizontal">
 								<label control="navBarItemsPaddingTop" value="Padding top: " />
 								<spacer flex="1" />
@@ -152,7 +152,7 @@
 						</groupbox>
 					</vbox>
 				</tabpanel>
-
+				
 				<tabpanel>
 					<vbox>
 						<hbox align="horizontal">
@@ -209,14 +209,14 @@
 							<textbox type="number" increment="1" min="-9999999"
 								preference="findBarPaddingTopPreference" id="findBarPaddingTop" tooltip="findBarPaddingTopTooltip" />
 						</hbox>
-
+						
 						<checkbox preference="findBarNoTransitionPreference"
 							id="findBarNoTransition" label="Disable transitions"
 							tooltiptext="Disables the transition when the findbar becomes visible or invisble and the transition when hovering over buttons." />
-
+						
 						<groupbox orient="vertical">
 							<caption label="TextBox" />
-
+							
 							<hbox align="horizontal">
 								<label control="findBarTextBoxPadding" value="Padding: " />
 								<spacer flex="1" />
@@ -242,7 +242,5 @@
 				</tabpanel>
 			</tabpanels>
 		</tabbox>
-
 	</prefpane>
-
 </prefwindow>
