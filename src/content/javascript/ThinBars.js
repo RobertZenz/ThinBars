@@ -105,7 +105,7 @@ var ThinBars = {
 		});
 		// , #urlbar-icons
 		this.preferences.registerInt("menubar.items.padding.bottom", -5, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box");
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
 			css = css.autoPadding("bottom", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
@@ -130,7 +130,7 @@ var ThinBars = {
 			_this.styleSheets.register(name, css.toCSS());
 		});
 		this.preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
-			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box");
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon");
 			css = css.autoPadding("bottom", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
