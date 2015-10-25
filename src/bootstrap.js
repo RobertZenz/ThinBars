@@ -16,7 +16,7 @@ function startup(data, reason) {
 	Components.utils.import("chrome://thinbars/content/javascript/sfab/ResourceAlias.js");
 	Components.utils.import("chrome://thinbars/content/javascript/ThinBars.js");
 	
-	ResourceAlias.register("thinbar", data);
+	ResourceAlias.register("thinbars", data);
 	ThinBars.init();
 }
 
