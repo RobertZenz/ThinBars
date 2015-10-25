@@ -13,15 +13,15 @@ function startup(data, reason) {
 	// Load the dependencies in the constructor, because the chrome.manifest
 	// hasn't been read before that.
 	
-	Components.utils.import("chrome://thinbars/content/javascript/ResourceAlias.js");
+	Components.utils.import("chrome://thinbars/content/javascript/sfab/ResourceAlias.js");
 	Components.utils.import("chrome://thinbars/content/javascript/ThinBars.js");
 	
-	ResourceAlias.register(data);
+	ResourceAlias.register("thinbar", data);
 	ThinBars.init();
 }
 
 function shutdown(data, reason) {
-	ResourceAlias.unregister();
+	ResourceAlias.unregister("thinbars");
 	ThinBars.destroy();
 }
 

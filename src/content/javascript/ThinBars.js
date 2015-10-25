@@ -13,96 +13,102 @@ var EXPORTED_SYMBOLS = [ "ThinBars" ];
 
 Components.utils.import("resource://gre/modules/Services.jsm");
 
-Components.utils.import("chrome://thinbars/content/javascript/CSSBuilder.js");
-Components.utils.import("chrome://thinbars/content/javascript/DynamicStyleSheets.js");
-Components.utils.import("chrome://thinbars/content/javascript/Preferences.js");
+Components.utils.import("chrome://thinbars/content/javascript/sfab/CSSBuilder.js");
+Components.utils.import("chrome://thinbars/content/javascript/sfab/DynamicStyleSheets.js");
+Components.utils.import("chrome://thinbars/content/javascript/sfab/Preferences.js");
 
 var ThinBars = {
+	preferences : new Preferences(),
+	
+	styleSheets : new DynamicStyleSheets(),
 	
 	init : function() {
-		DynamicStyleSheets.init();
-		Preferences.init("extensions.org.bonsaimind.thinbars.");
+		this.styleSheets.init();
+		this.preferences.init("extensions.org.bonsaimind.thinbars.");
 		
 		this.setDefaultPreferences();
 	},
 	
 	destroy : function() {
-		Preferences.destroy();
-		DynamicStyleSheets.unregisterAll();
+		this.preferences.destroy();
+		this.styleSheets.unregisterAll();
 	},
 	
 	setDefaultPreferences : function() {
-		Preferences.registerInt("findbar.height", 22, function(name, value) {
+		// Needed for the callbacks.
+		var _this = this;
+		
+		this.preferences.registerInt("findbar.height", 22, function(name, value) {
 			var css = new CSSBuilder("findbar > *").forceHeight(value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerBool("findbar.notransition", true, function(name, value) {
+		this.preferences.registerBool("findbar.notransition", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("findbar, .findbar-button > *").add("transition", "none");
-				DynamicStyleSheets.register(name, css.toCSS());
+				_this.styleSheets.register(name, css.toCSS());
 			} else {
-				DynamicStyleSheets.unregister(name);
+				_this.styleSheets.unregister(name);
 			}
 		});
 		
-		Preferences.registerInt("findbar.padding.bottom", 0, function(name, value) {
+		this.preferences.registerInt("findbar.padding.bottom", 0, function(name, value) {
 			var css = new CSSBuilder(".findbar-container").autoPadding("bottom", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("findbar.padding.left", 1, function(name, value) {
+		this.preferences.registerInt("findbar.padding.left", 1, function(name, value) {
 			var css = new CSSBuilder(".findbar-container").autoPadding("left", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("findbar.padding.right", 1, function(name, value) {
+		this.preferences.registerInt("findbar.padding.right", 1, function(name, value) {
 			var css = new CSSBuilder(".findbar-container").autoPadding("right", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("findbar.padding.top", -1, function(name, value) {
+		this.preferences.registerInt("findbar.padding.top", -1, function(name, value) {
 			var css = new CSSBuilder(".findbar-container").autoPadding("top", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("findbar.textbox.padding", 0, function(name, value) {
+		this.preferences.registerInt("findbar.textbox.padding", 0, function(name, value) {
 			var css = new CSSBuilder(".findbar-textbox").autoPadding("", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("menubar.height", 22, function(name, value) {
+		this.preferences.registerInt("menubar.height", 22, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar > *").forceHeight(value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("menubar.items.padding.top", -2, function(name, value) {
+		this.preferences.registerInt("menubar.items.padding.top", -2, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon").autoPadding("top", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		// , #urlbar-icons
-		Preferences.registerInt("menubar.items.padding.bottom", -2, function(name, value) {
+		this.preferences.registerInt("menubar.items.padding.bottom", -2, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon, #identity-box")
 					.autoPadding("bottom", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.height", 27, function(name, value) {
+		this.preferences.registerInt("navbar.height", 27, function(name, value) {
 			var css = new CSSBuilder("#nav-bar").forceHeight(value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.items.padding.top", -2, function(name, value) {
+		this.preferences.registerInt("navbar.items.padding.top", -2, function(name, value) {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon").autoPadding("top", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
+		this.preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box").autoPadding("bottom", value);
-			DynamicStyleSheets.register(name, css.toCSS());
+			_this.styleSheets.register(name, css.toCSS());
 		});
 		
-		Preferences.registerBool("navbar.notransition", true, function(name, value) {
+		this.preferences.registerBool("navbar.notransition", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#nav-bar");
 				css = css.addSelector("#nav-bar > *");
@@ -110,18 +116,18 @@ var ThinBars = {
 				css = css.addSelector("#nav-bar > #nav-bar-customization-target > *");
 				css = css.add("transition", "none");
 				
-				DynamicStyleSheets.register(name, css.toCSS());
+				_this.styleSheets.register(name, css.toCSS());
 			} else {
-				DynamicStyleSheets.unregister(name);
+				_this.styleSheets.unregister(name);
 			}
 		});
 		
-		Preferences.registerBool("other.items.bookmarks_icon.hide_dropdown", true, function(name, value) {
+		this.preferences.registerBool("other.items.bookmarks_icon.hide_dropdown", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker").hide();
-				DynamicStyleSheets.register(name, css.toCSS());
+				_this.styleSheets.register(name, css.toCSS());
 			} else {
-				DynamicStyleSheets.unregister(name);
+				_this.styleSheets.unregister(name);
 			}
 		});
 	}
