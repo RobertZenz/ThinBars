@@ -89,7 +89,15 @@ var ThinBars = {
 			css = css.forceHeight(value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
-		
+		this.preferences.registerBool("menubar.hide", false, function(name , value) {
+			if (value) {
+				var css = new CSSBuilder("#toolbar-menubar");
+				css = css.hide();
+				_this.styleSheets.register(name, css.toCSS());
+			} else {
+				_this.styleSheets.unregister(name);
+			}
+		});
 		this.preferences.registerInt("menubar.items.padding.top", -2, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
 			css = css.autoPadding("top", value);
@@ -107,19 +115,25 @@ var ThinBars = {
 			css = css.forceHeight(value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
-		
+		this.preferences.registerBool("navbar.hide", false, function(name , value) {
+			if (value) {
+				var css = new CSSBuilder("#nav-bar");
+				css = css.hide();
+				_this.styleSheets.register(name, css.toCSS());
+			} else {
+				_this.styleSheets.unregister(name);
+			}
+		});
 		this.preferences.registerInt("navbar.items.padding.top", -2, function(name, value) {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon");
 			css = css.autoPadding("top", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
-		
 		this.preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
 			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon, #identity-box");
 			css = css.autoPadding("bottom", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
-		
 		this.preferences.registerBool("navbar.notransition", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#nav-bar");

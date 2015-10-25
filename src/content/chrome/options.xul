@@ -28,6 +28,9 @@
 			<preference id="findBarTextBoxPaddingPreference"
 				name="extensions.org.bonsaimind.thinbars.findbar.textbox.padding"
 				type="int" />
+			<preference id="menuBarHidePreference"
+				name="extensions.org.bonsaimind.thinbars.menubar.hide"
+				type="bool" />
 			<preference id="menuBarHeightPreference"
 				name="extensions.org.bonsaimind.thinbars.menubar.height" type="int" />
 			<preference id="menuBarItemsPaddingTopPreference"
@@ -38,6 +41,9 @@
 				type="int" />
 			<preference id="navBarHeightPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.height" type="int" />
+			<preference id="navBarHidePreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.hide"
+				type="bool" />
 			<preference id="navBarItemsPaddingTopPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.top"
 				type="int" />
@@ -62,6 +68,10 @@
 			<tabpanels>
 				<tabpanel>
 					<vbox>
+						<checkbox preference="menuBarHidePreference"
+							id="menuBarHide" label="Hide the menu bar"
+							tooltiptext="Hides the menu bar completely." />
+						
 						<hbox align="horizontal">
 							<label control="menuBarHeight" value="Height: " />
 							<spacer flex="1" />
@@ -106,6 +116,10 @@
 				
 				<tabpanel>
 					<vbox>
+						<checkbox preference="navBarHidePreference"
+							id="navBarHide" label="Hide the navigation bar"
+							tooltiptext="Hides the navigation bar completely." />
+						
 						<hbox align="horizontal">
 							<label control="navBarHeight" value="Height: " />
 							<spacer flex="1" />
