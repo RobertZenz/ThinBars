@@ -24,6 +24,8 @@ var ThinBars = {
 	
 	init : function() {
 		this.styleSheets.init();
+		this.styleSheets.registerPath("main", "resource://thinbars/content/css/main.css");
+		
 		this.preferences.init("extensions.org.bonsaimind.thinbars.");
 		
 		this.setDefaultPreferences();
