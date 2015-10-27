@@ -98,15 +98,24 @@ var ThinBars = {
 				_this.styleSheets.unregister(name);
 			}
 		});
-		this.preferences.registerInt("menubar.items.padding.top", -5, function(name, value) {
-			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
-			css = css.autoPadding("top", value);
-			_this.styleSheets.register(name, css.toCSS());
-		});
-		// , #urlbar-icons
 		this.preferences.registerInt("menubar.items.padding.bottom", -5, function(name, value) {
 			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
 			css = css.autoPadding("bottom", value);
+			_this.styleSheets.register(name, css.toCSS());
+		});
+		this.preferences.registerInt("menubar.items.padding.left", -2, function(name, value) {
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
+			css = css.autoPadding("left", value);
+			_this.styleSheets.register(name, css.toCSS());
+		});
+		this.preferences.registerInt("menubar.items.padding.right", -2, function(name, value) {
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
+			css = css.autoPadding("right", value);
+			_this.styleSheets.register(name, css.toCSS());
+		});
+		this.preferences.registerInt("menubar.items.padding.top", -5, function(name, value) {
+			var css = new CSSBuilder("#toolbar-menubar .toolbarbutton-icon");
+			css = css.autoPadding("top", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
 		
@@ -124,14 +133,24 @@ var ThinBars = {
 				_this.styleSheets.unregister(name);
 			}
 		});
-		this.preferences.registerInt("navbar.items.padding.top", -2, function(name, value) {
-			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon");
-			css = css.autoPadding("top", value);
+		this.preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-1 .toolbarbutton-icon");
+			css = css.autoPadding("bottom", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
-		this.preferences.registerInt("navbar.items.padding.bottom", -2, function(name, value) {
-			var css = new CSSBuilder("#nav-bar .toolbarbutton-icon");
-			css = css.autoPadding("bottom", value);
+		this.preferences.registerInt("navbar.items.padding.left", -2, function(name, value) {
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-1 .toolbarbutton-icon");
+			css = css.autoPadding("left", value);
+			_this.styleSheets.register(name, css.toCSS());
+		});
+		this.preferences.registerInt("navbar.items.padding.right", -2, function(name, value) {
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-1 .toolbarbutton-icon");
+			css = css.autoPadding("right", value);
+			_this.styleSheets.register(name, css.toCSS());
+		});
+		this.preferences.registerInt("navbar.items.padding.top", -2, function(name, value) {
+			var css = new CSSBuilder("#nav-bar .toolbarbutton-1 .toolbarbutton-icon");
+			css = css.autoPadding("top", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
 		this.preferences.registerBool("navbar.notransition", true, function(name, value) {

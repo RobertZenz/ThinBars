@@ -33,22 +33,34 @@
 				type="bool" />
 			<preference id="menuBarHeightPreference"
 				name="extensions.org.bonsaimind.thinbars.menubar.height" type="int" />
-			<preference id="menuBarItemsPaddingTopPreference"
-				name="extensions.org.bonsaimind.thinbars.menubar.items.padding.top"
-				type="int" />
 			<preference id="menuBarItemsPaddingBottomPreference"
 				name="extensions.org.bonsaimind.thinbars.menubar.items.padding.bottom"
+				type="int" />
+			<preference id="menuBarItemsPaddingLeftPreference"
+				name="extensions.org.bonsaimind.thinbars.menubar.items.padding.left"
+				type="int" />
+			<preference id="menuBarItemsPaddingRightPreference"
+				name="extensions.org.bonsaimind.thinbars.menubar.items.padding.right"
+				type="int" />
+			<preference id="menuBarItemsPaddingTopPreference"
+				name="extensions.org.bonsaimind.thinbars.menubar.items.padding.top"
 				type="int" />
 			<preference id="navBarHeightPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.height" type="int" />
 			<preference id="navBarHidePreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.hide"
 				type="bool" />
-			<preference id="navBarItemsPaddingTopPreference"
-				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.top"
-				type="int" />
 			<preference id="navBarItemsPaddingBottomPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.bottom"
+				type="int" />
+			<preference id="navBarItemsPaddingLeftPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.left"
+				type="int" />
+			<preference id="navBarItemsPaddingRightPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.right"
+				type="int" />
+			<preference id="navBarItemsPaddingTopPreference"
+				name="extensions.org.bonsaimind.thinbars.navbar.items.padding.top"
 				type="int" />
 			<preference id="navBarNoTransitionPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.notransition"
@@ -99,11 +111,37 @@
 							</hbox>
 							
 							<hbox align="horizontal">
+								<label control="menuBarItemsPaddingLeft" value="Padding left: " />
+								<spacer flex="1" />
+								<tooltip id="menuBarItemsPaddingLeftTooltip">
+									<label
+										value="Defines how much space is between the icon and the left edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="menuBarItemsPaddingLeftPreference" id="menuBarItemsPaddingLeft"
+									tooltip="menuBarItemsPaddingLeftTooltip" />
+							</hbox>
+							
+							<hbox align="horizontal">
+								<label control="menuBarItemsPaddingRight" value="Padding right: " />
+								<spacer flex="1" />
+								<tooltip id="menuBarItemsPaddingRightTooltip">
+									<label
+										value="Defines how much space is between the icon and the right edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="menuBarItemsPaddingRightPreference" id="menuBarItemsPaddingRight"
+									tooltip="menuBarItemsPaddingRightTooltip" />
+							</hbox>
+							
+							<hbox align="horizontal">
 								<label control="menuBarItemsPaddingBottom" value="Padding bottom: " />
 								<spacer flex="1" />
 								<tooltip id="menuBarItemsPaddingBottomTooltip">
 									<label
-										value="Defines how much space is between the icon and the top edge." />
+										value="Defines how much space is between the icon and the bottom edge." />
 									<label value="Default value: -1" style="font-weight: bold;" />
 								</tooltip>
 								<textbox type="number" increment="1" min="-9999999"
@@ -152,11 +190,37 @@
 							</hbox>
 							
 							<hbox align="horizontal">
+								<label control="navBarItemsPaddingLeft" value="Padding left: " />
+								<spacer flex="1" />
+								<tooltip id="navBarItemsPaddingLeftTooltip">
+									<label
+										value="Defines how much space is between the icon and the left edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="navBarItemsPaddingLeftPreference" id="navBarItemsPaddingLeft"
+									tooltip="navBarItemsPaddingLeftTooltip" />
+							</hbox>
+							
+							<hbox align="horizontal">
+								<label control="navBarItemsPaddingRight" value="Padding right: " />
+								<spacer flex="1" />
+								<tooltip id="navBarItemsPaddingRightTooltip">
+									<label
+										value="Defines how much space is between the icon and the right edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="navBarItemsPaddingRightPreference" id="navBarItemsPaddingRight"
+									tooltip="navBarItemsPaddingRightTooltip" />
+							</hbox>
+							
+							<hbox align="horizontal">
 								<label control="navBarItemsPaddingBottom" value="Padding bottom: " />
 								<spacer flex="1" />
 								<tooltip id="navBarItemsPaddingBottomTooltip">
 									<label
-										value="Defines how much space is between the icon and the top edge." />
+										value="Defines how much space is between the icon and the bottom edge." />
 									<label value="Default value: -1" style="font-weight: bold;" />
 								</tooltip>
 								<textbox type="number" increment="1" min="-9999999"
