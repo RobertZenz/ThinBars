@@ -24,7 +24,6 @@ var ThinBars = {
 	
 	init : function() {
 		this.styleSheets.init();
-		this.styleSheets.registerPath("main", "resource://thinbars/content/css/main.css");
 		
 		this.preferences.init("extensions.org.bonsaimind.thinbars.");
 		
@@ -173,6 +172,15 @@ var ThinBars = {
 			if (value) {
 				var css = new CSSBuilder("#bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker");
 				css = css.hide();
+				_this.styleSheets.register(name, css.toCSS());
+			} else {
+				_this.styleSheets.unregister(name);
+			}
+		});
+		this.preferences.registerBool("other.urlbar.padding.left", true, function(name, value) {
+			if (value) {
+				var css = new CSSBuilder("#urlbar-wrapper");
+				css = css.padding("left", 16);
 				_this.styleSheets.register(name, css.toCSS());
 			} else {
 				_this.styleSheets.unregister(name);
