@@ -68,6 +68,9 @@
 			<preference id="otherBookmarksIconHideDropdownPreference"
 				name="extensions.org.bonsaimind.thinbars.other.items.bookmarks_icon.hide_dropdown"
 				type="bool" />
+			<preference id="otherNotificationbarHidePreference"
+				name="extensions.org.bonsaimind.thinbars.other.notificationbar.hide"
+				type="bool" />
 			<preference id="otherUrlbarPaddingLeftPreference"
 				name="extensions.org.bonsaimind.thinbars.other.urlbar.padding.left"
 				type="bool" />
@@ -319,6 +322,9 @@
 						<checkbox preference="otherBookmarksIconHideDropdownPreference"
 							id="otherBookmarksIconHideDropdown" label="Hide dropdown of bookmark icon"
 							tooltiptext="Hides the dropdown of the bookmark icon." />
+						<checkbox preference="otherNotificationbarHidePreference"
+							id="otherNotificationbarHide" label="Hide the notification bar"
+							tooltiptext="Hides the notification bar (popups, blocked plugins) permanently." />
 						<checkbox preference="otherUrlbarPaddingLeftPreference"
 							id="otherUrlbarPaddingLeft" label="Add padding to the left side of the urlbar"
 							tooltiptext="Fixes that the icon is hidden under the back button." />
