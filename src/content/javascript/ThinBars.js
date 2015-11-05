@@ -170,13 +170,13 @@ var ThinBars = {
 			}
 		});
 		
-		this.preferences.registerInt("other.identity_icons.padding.bottom", -1, function(name, value) {
+		this.preferences.registerInt("other.identity_icons.padding.bottom", 0, function(name, value) {
 			var css = new CSSBuilder("#identity-box");
 			css = css.addSelector("#identity-icons");
 			css = css.autoPadding("bottom", value);
 			_this.styleSheets.register(name, css.toCSS());
 		});
-		this.preferences.registerInt("other.identity_icons.padding.top", -1, function(name, value) {
+		this.preferences.registerInt("other.identity_icons.padding.top", 0, function(name, value) {
 			var css = new CSSBuilder("#identity-box");
 			css = css.addSelector("#identity-icons");
 			css = css.autoPadding("top", value);

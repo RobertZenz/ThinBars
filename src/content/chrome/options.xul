@@ -372,7 +372,7 @@
 								<tooltip id="otherIdentityIconsPaddingTopTooltip">
 									<label
 										value="Defines how much space is between the icon and the top edge." />
-									<label value="Default value: -1" style="font-weight: bold;" />
+									<label value="Default value: 0" style="font-weight: bold;" />
 								</tooltip>
 								<textbox type="number" increment="1" min="-9999999"
 									preference="otherIdentityIconsPaddingTopPreference" id="otherIdentityIconsPaddingTop"
@@ -384,7 +384,7 @@
 								<tooltip id="otherIdentityIconsPaddingBottomTooltip">
 									<label
 										value="Defines how much space is between the icon and the bottom edge." />
-									<label value="Default value: -1" style="font-weight: bold;" />
+									<label value="Default value: 0" style="font-weight: bold;" />
 								</tooltip>
 								<textbox type="number" increment="1" min="-9999999"
 									preference="otherIdentityIconsPaddingBottomPreference" id="otherIdentityIconsPaddingBottom"
