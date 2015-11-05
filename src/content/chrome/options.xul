@@ -68,6 +68,12 @@
 			<preference id="otherBookmarksIconHideDropdownPreference"
 				name="extensions.org.bonsaimind.thinbars.other.items.bookmarks_icon.hide_dropdown"
 				type="bool" />
+			<preference id="otherIdentityIconsPaddingBottomPreference"
+				name="extensions.org.bonsaimind.thinbars.other.identity_icons.padding.bottom"
+				type="int" />
+			<preference id="otherIdentityIconsPaddingTopPreference"
+				name="extensions.org.bonsaimind.thinbars.other.identity_icons.padding.top"
+				type="int" />
 			<preference id="otherNotificationbarHidePreference"
 				name="extensions.org.bonsaimind.thinbars.other.notificationbar.hide"
 				type="bool" />
@@ -328,6 +334,35 @@
 						<checkbox preference="otherUrlbarPaddingLeftPreference"
 							id="otherUrlbarPaddingLeft" label="Add padding to the left side of the urlbar"
 							tooltiptext="Fixes that the icon is hidden under the back button." />
+						
+						<groupbox orient="vertical">
+							<caption label="Identity Icons" />
+							
+							<hbox align="horizontal">
+								<label control="otherIdentityIconsPaddingTop" value="Padding top: " />
+								<spacer flex="1" />
+								<tooltip id="otherIdentityIconsPaddingTopTooltip">
+									<label
+										value="Defines how much space is between the icon and the top edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="otherIdentityIconsPaddingTopPreference" id="otherIdentityIconsPaddingTop"
+									tooltip="otherIdentityIconsPaddingTopTooltip" />
+							</hbox>
+							<hbox align="horizontal">
+								<label control="otherIdentityIconsPaddingBottom" value="Padding bottom: " />
+								<spacer flex="1" />
+								<tooltip id="otherIdentityIconsPaddingBottomTooltip">
+									<label
+										value="Defines how much space is between the icon and the bottom edge." />
+									<label value="Default value: -1" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1" min="-9999999"
+									preference="otherIdentityIconsPaddingBottomPreference" id="otherIdentityIconsPaddingBottom"
+									tooltip="otherIdentityIconsPaddingBottomTooltip" />
+							</hbox>
+						</groupbox>
 					</vbox>
 				</tabpanel>
 			</tabpanels>
