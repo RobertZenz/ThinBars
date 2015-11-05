@@ -77,6 +77,9 @@
 			<preference id="otherNotificationbarHidePreference"
 				name="extensions.org.bonsaimind.thinbars.other.notificationbar.hide"
 				type="bool" />
+			<preference id="otherUrlbarDropdownMinWidthPreference"
+				name="extensions.org.bonsaimind.thinbars.other.urlbar.dropdown.minwidth"
+				type="int" />
 			<preference id="otherUrlbarDropdownNoTransitionPreference"
 				name="extensions.org.bonsaimind.thinbars.other.urlbar.dropdown.notransition"
 				type="bool" />
@@ -345,6 +348,18 @@
 								<checkbox preference="otherUrlbarDropdownNoTransitionPreference"
 									id="otherUrlbarDropdownNoTransition" label="Disable transitions"
 									tooltiptext="Disables all transitions/animations on the dropdown of the urlbar (Firefox 42+)." />
+							</hbox>
+							<hbox align="horizontal">
+								<label control="otherUrlbarDropdownMinWidth" value="Dropdown min width: " />
+								<spacer flex="1" />
+								<tooltip id="otherUrlbarDropdownMinWidthTooltip">
+									<label
+										value="Defines the minimum size of the dropdown of the urlbar." />
+									<label value="Default value: 0" style="font-weight: bold;" />
+								</tooltip>
+								<textbox type="number" increment="1"
+									preference="otherUrlbarDropdownMinWidthPreference" id="otherUrlbarDropdownMinWidth"
+									tooltip="otherUrlbarDropdownMinWidthTooltip" />
 							</hbox>
 						</groupbox>
 						

@@ -200,6 +200,12 @@ var ThinBars = {
 				_this.styleSheets.unregister(name);
 			}
 		});
+		this.preferences.registerInt("other.urlbar.dropdown.minwidth", 0, function(name, value) {
+			var css = new CSSBuilder("#PopupAutoCompleteRichResult");
+			css = css.addSelector("#PopupAutoCompleteRichResult > *");
+			css = css.minWidth(value);
+			_this.styleSheets.register(name, css.toCSS());
+		});
 		this.preferences.registerBool("other.urlbar.dropdown.notransition", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#PopupAutoCompleteRichResult");
