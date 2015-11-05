@@ -48,8 +48,11 @@ var ThinBars = {
 		
 		this.preferences.registerBool("findbar.notransition", true, function(name, value) {
 			if (value) {
-				var css = new CSSBuilder("findbar, .findbar-button > *");
+				var css = new CSSBuilder("findbar");
+				css = css.addSelector("findbar *");
 				css = css.add("transition", "none");
+				css = css.add("animation", "none");
+				
 				_this.styleSheets.register(name, css.toCSS());
 			} else {
 				_this.styleSheets.unregister(name);
@@ -158,10 +161,9 @@ var ThinBars = {
 		this.preferences.registerBool("navbar.notransition", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#nav-bar");
-				css = css.addSelector("#nav-bar > *");
-				css = css.addSelector("#nav-bar > #nav-bar-customization-target");
-				css = css.addSelector("#nav-bar > #nav-bar-customization-target > *");
+				css = css.addSelector("#nav-bar *");
 				css = css.add("transition", "none");
+				css = css.add("animation", "none");
 				
 				_this.styleSheets.register(name, css.toCSS());
 			} else {
