@@ -164,7 +164,6 @@ var ThinBars = {
 				css = css.addSelector("#nav-bar *");
 				css = css.add("transition", "none");
 				css = css.add("animation", "none");
-				
 				_this.styleSheets.register(name, css.toCSS());
 			} else {
 				_this.styleSheets.unregister(name);
@@ -196,6 +195,17 @@ var ThinBars = {
 			if (value) {
 				var css = new CSSBuilder(".notificationbox-stack");
 				css = css.hide();
+				_this.styleSheets.register(name, css.toCSS());
+			} else {
+				_this.styleSheets.unregister(name);
+			}
+		});
+		this.preferences.registerBool("other.urlbar.dropdown.notransition", true, function(name, value) {
+			if (value) {
+				var css = new CSSBuilder("#PopupAutoCompleteRichResult");
+				css = css.addSelector("#PopupAutoCompleteRichResult *");
+				css = css.add("transition", "none");
+				css = css.add("animation", "none");
 				_this.styleSheets.register(name, css.toCSS());
 			} else {
 				_this.styleSheets.unregister(name);

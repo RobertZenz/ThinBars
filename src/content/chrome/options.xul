@@ -77,6 +77,9 @@
 			<preference id="otherNotificationbarHidePreference"
 				name="extensions.org.bonsaimind.thinbars.other.notificationbar.hide"
 				type="bool" />
+			<preference id="otherUrlbarDropdownNoTransitionPreference"
+				name="extensions.org.bonsaimind.thinbars.other.urlbar.dropdown.notransition"
+				type="bool" />
 			<preference id="otherUrlbarPaddingLeftPreference"
 				name="extensions.org.bonsaimind.thinbars.other.urlbar.padding.left"
 				type="bool" />
@@ -334,6 +337,16 @@
 						<checkbox preference="otherUrlbarPaddingLeftPreference"
 							id="otherUrlbarPaddingLeft" label="Add padding to the left side of the urlbar"
 							tooltiptext="Fixes that the icon is hidden under the back button." />
+						
+						<groupbox orient="vertical">
+							<caption label="Urlbar" />
+							
+							<hbox align="horizontal">
+								<checkbox preference="otherUrlbarDropdownNoTransitionPreference"
+									id="otherUrlbarDropdownNoTransition" label="Disable transitions"
+									tooltiptext="Disables all transitions/animations on the dropdown of the urlbar (Firefox 42+)." />
+							</hbox>
+						</groupbox>
 						
 						<groupbox orient="vertical">
 							<caption label="Identity Icons" />
