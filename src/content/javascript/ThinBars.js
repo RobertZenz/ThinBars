@@ -217,6 +217,17 @@ var ThinBars = {
 				_this.styleSheets.unregister(name);
 			}
 		});
+		var urlbarHeightFunction = function(name, value) {
+			if (_this.preferences.getBool("other.urlbar.height.force")) {
+				var css = new CSSBuilder("#urlbar");
+				css = css.forceHeight(_this.preferences.getInt("other.urlbar.height"));
+				_this.styleSheets.register("other.urlbar.height", css.toCSS());
+			} else {
+				_this.styleSheets.unregister("other.urlbar.height");
+			}
+		};
+		this.preferences.registerInt("other.urlbar.height", 24, urlbarHeightFunction);
+		this.preferences.registerBool("other.urlbar.height.force", false, urlbarHeightFunction);
 		this.preferences.registerBool("other.urlbar.padding.left", true, function(name, value) {
 			if (value) {
 				var css = new CSSBuilder("#urlbar-wrapper");
