@@ -2,6 +2,18 @@ Changelog
 =========
 
 
+1.1
+---
+
+ * #2, fixed that the urlbar would not shrink.
+ * #1, added possibility to set the padding of the identity icons.
+ * Fixed that transitions were not disabled.
+ * #4, added ability to disable the animations of the urlbar dropdown.
+ * #3, added ability to define a minimum width of the urlbar dropdown.
+ * #5, added ability to force the urlbar to a certain height.
+ * Tested compatibility with multi-process/e10.
+
+
 1.0
 ---
 
