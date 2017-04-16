@@ -90,13 +90,13 @@ var ThinBars = {
 		
 		this.preferences.registerInt("menubar.height", 24, function(name, value) {
 			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-					.addSelector("#toolbar-menubar > *")
+					.addSelector("#navigator-toolbox #toolbar-menubar > *")
 					.forceHeight(value));
 		});
 		this.preferences.registerBool("menubar.hide", false, function(name , value) {
 			if (value) {
 				_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-						.addSelector("#toolbar-menubar")
+						.addSelector("#navigator-toolbox #toolbar-menubar")
 						.hide());
 			} else {
 				_this.styleSheets.unregister(name);
@@ -104,22 +104,22 @@ var ThinBars = {
 		});
 		this.preferences.registerInt("menubar.items.padding.bottom", -5, function(name, value) {
 			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-					.addSelector("#toolbar-menubar .toolbarbutton-icon")
+					.addSelector("#navigator-toolbox #toolbar-menubar .toolbarbutton-icon")
 					.autoPadding("bottom", value));
 		});
 		this.preferences.registerInt("menubar.items.padding.left", -2, function(name, value) {
 			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-					.addSelector("#toolbar-menubar .toolbarbutton-icon")
+					.addSelector("#navigator-toolbox #toolbar-menubar .toolbarbutton-icon")
 					.autoPadding("left", value));
 		});
 		this.preferences.registerInt("menubar.items.padding.right", -2, function(name, value) {
 			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-					.addSelector("#toolbar-menubar .toolbarbutton-icon")
+					.addSelector("#navigator-toolbox #toolbar-menubar .toolbarbutton-icon")
 					.autoPadding("right", value));
 		});
 		this.preferences.registerInt("menubar.items.padding.top", -5, function(name, value) {
 			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-					.addSelector("#toolbar-menubar .toolbarbutton-icon")
+					.addSelector("#navigator-toolbox #toolbar-menubar .toolbarbutton-icon")
 					.autoPadding("top", value));
 		});
 		
@@ -184,7 +184,7 @@ var ThinBars = {
 		this.preferences.registerBool("other.items.bookmarks_icon.hide_dropdown", true, function(name, value) {
 			if (value) {
 				_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-						.addSelector("#bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker")
+						.addSelector("#navigator-toolbox #bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker")
 						.hide());
 			} else {
 				_this.styleSheets.unregister(name);
@@ -219,7 +219,7 @@ var ThinBars = {
 		var urlbarHeightFunction = function(name, value) {
 			if (_this.preferences.getBool("other.urlbar.height.force")) {
 				_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-						.addSelector("#urlbar")
+						.addSelector("#navigator-toolbox #urlbar")
 						.forceHeight(_this.preferences.getInt("other.urlbar.height")));
 			} else {
 				_this.styleSheets.unregister("other.urlbar.height");
@@ -230,7 +230,7 @@ var ThinBars = {
 		this.preferences.registerBool("other.urlbar.padding.left", true, function(name, value) {
 			if (value) {
 				_this.styleSheets.registerForBrowser(name, new CSSBuilder()
-						.addSelector("#urlbar-wrapper")
+						.addSelector("#navigator-toolbox #urlbar-wrapper")
 						.padding("left", 16));
 			} else {
 				_this.styleSheets.unregister(name);
