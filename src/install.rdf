@@ -5,12 +5,10 @@
 		<!-- General addon information -->
 		<em:id>thinbars@bonsaimind.org</em:id>
 		<em:name>Thin Bars</em:name>
-		<em:version>1.1</em:version>
+		<em:version>1.2</em:version>
 		<em:type>2</em:type>
 		<em:multiprocessCompatible>true</em:multiprocessCompatible>
-		<em:description>
-			Customization options for the menubar, toolbar and findbar.
-		</em:description>
+		<em:description>Customization options for the menubar, toolbar and findbar.</em:description>
 		
 		<!-- Options dialog -->
 		<em:optionsURL>chrome://thinbars/content/chrome/options.xul</em:optionsURL>
@@ -19,7 +17,7 @@
 		<!-- If it is a bootstrap addon. -->
 		<em:bootstrap>true</em:bootstrap>
 
-		<!-- Targeted applications -->
+		<!-- Firefox -->
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
@@ -27,7 +25,15 @@
 				<em:maxVersion>54.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
-
+			
+			<!-- Palemoon -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+				<em:minVersion>27.0</em:minVersion>
+				<em:maxVersion>27.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
 	</Description>
 </RDF>
 
