@@ -65,6 +65,18 @@
 			<preference id="navBarNoTransitionPreference"
 				name="extensions.org.bonsaimind.thinbars.navbar.notransition"
 				type="bool" />
+			<preference id="menusPaddingBottomPreference"
+				name="extensions.org.bonsaimind.thinbars.menus.padding.bottom"
+				type="int" />
+			<preference id="menusPaddingLeftPreference"
+				name="extensions.org.bonsaimind.thinbars.menus.padding.left"
+				type="int" />
+			<preference id="menusPaddingRightPreference"
+				name="extensions.org.bonsaimind.thinbars.menus.padding.right"
+				type="int" />
+			<preference id="menusPaddingTopPreference"
+				name="extensions.org.bonsaimind.thinbars.menus.padding.top"
+				type="int" />
 			<preference id="otherBookmarksIconHideDropdownPreference"
 				name="extensions.org.bonsaimind.thinbars.other.items.bookmarks_icon.hide_dropdown"
 				type="bool" />
@@ -99,6 +111,7 @@
 				<tab label="MenuBar" />
 				<tab label="NavBar" />
 				<tab label="FindBar" />
+				<tab label="Menus" />
 				<tab label="Other" />
 			</tabs>
 			<tabpanels>
@@ -337,6 +350,59 @@
 				
 				<tabpanel>
 					<vbox>
+						<hbox align="horizontal">
+							<label control="menusPaddingTop" value="Padding top: " />
+							<spacer flex="1" />
+							<tooltip id="menusPaddingTopTooltip">
+								<label
+									value="Defines how much space is between the content of menus and its borders." />
+								<label value="Default value: 0" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="menusPaddingTopPreference" id="menusPaddingTop"
+								tooltip="menusPaddingTopTooltip" />
+						</hbox>
+						<hbox align="horizontal">
+							<label control="menusPaddingLeft" value="Padding left: " />
+							<spacer flex="1" />
+							<tooltip id="menusPaddingLeftTooltip">
+								<label
+									value="Defines how much space is between the content of menus and its borders." />
+								<label value="Default value: 0" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="menusPaddingLeftPreference" id="menusPaddingLeft"
+								tooltip="menusPaddingLeftTooltip" />
+						</hbox>
+						<hbox align="horizontal">
+							<label control="menusPaddingRight" value="Padding right: " />
+							<spacer flex="1" />
+							<tooltip id="menusPaddingRightTooltip">
+								<label
+									value="Defines how much space is between the content of menus and its borders." />
+								<label value="Default value: 0" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="menusPaddingRightPreference" id="menusPaddingRight"
+								tooltip="menusPaddingRightTooltip" />
+						</hbox>
+						<hbox align="horizontal">
+							<label control="menusPaddingBottom" value="Padding bottom: " />
+							<spacer flex="1" />
+							<tooltip id="menusPaddingBottomTooltip">
+								<label
+									value="Defines how much space is between the content of menus and its borders." />
+								<label value="Default value: 0" style="font-weight: bold;" />
+							</tooltip>
+							<textbox type="number" increment="1" min="-9999999"
+								preference="menusPaddingBottomPreference" id="menusPaddingBottom"
+								tooltip="menusPaddingBottomTooltip" />
+						</hbox>
+					</vbox>
+				</tabpanel>
+				
+				<tabpanel>
+					<vbox>
 						<checkbox preference="otherBookmarksIconHideDropdownPreference"
 							id="otherBookmarksIconHideDropdown" label="Hide dropdown of bookmark icon"
 							tooltiptext="Hides the dropdown of the bookmark icon." />
@@ -420,3 +486,4 @@
 		</tabbox>
 	</prefpane>
 </prefwindow>
+

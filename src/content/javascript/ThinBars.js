@@ -169,6 +169,27 @@ var ThinBars = {
 			}
 		});
 		
+		this.preferences.registerInt("menus.padding.bottom", 0, function(name, value) {
+			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
+					.addSelector("#navigator-toolbox .popup-internal-box .scrollbox-innerbox")
+					.autoPadding("bottom", value));
+		});
+		this.preferences.registerInt("menus.padding.left", 0, function(name, value) {
+			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
+					.addSelector("#navigator-toolbox .popup-internal-box .scrollbox-innerbox")
+					.autoPadding("left", value));
+		});
+		this.preferences.registerInt("menus.padding.right", 0, function(name, value) {
+			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
+					.addSelector("#navigator-toolbox .popup-internal-box .scrollbox-innerbox")
+					.autoPadding("right", value));
+		});
+		this.preferences.registerInt("menus.padding.top", 0, function(name, value) {
+			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
+					.addSelector("#navigator-toolbox .popup-internal-box .scrollbox-innerbox")
+					.autoPadding("top", value));
+		});
+		
 		this.preferences.registerInt("other.identity_icons.padding.bottom", 0, function(name, value) {
 			_this.styleSheets.registerForBrowser(name, new CSSBuilder()
 					.addSelector("#identity-box")

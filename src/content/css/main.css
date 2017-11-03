@@ -8,6 +8,11 @@
 
 @-moz-document url(chrome://browser/content/browser.xul) {
 
+#navigator-toolbox .popup-internal-box {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
 #urlbar,
 #urlbar-container {
 	min-height: 0px !important;
